@@ -3,7 +3,7 @@ gi.require_version("Gtk", "3.0")
 from gi.repository import Gtk, Gdk
 
 from views import home_view, generate_seed_input_view, generate_seed_confirmation_view, seed_view, wallets_view, wallet_address_view
-
+from gpio import buttons
 
 class Window(Gtk.Window):
     def __init__(self):
@@ -59,7 +59,7 @@ class Window(Gtk.Window):
 if __name__ == "__main__":
     # Create window
     win = Window()
-
+    buttons.bind_buttons(win)
     # Start GTK+ processing loop
     Gtk.main()
 
