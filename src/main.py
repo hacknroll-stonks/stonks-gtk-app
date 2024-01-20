@@ -1,9 +1,8 @@
 import gi
-
 gi.require_version("Gtk", "3.0")
 from gi.repository import Gtk, Gdk
 
-from views import home_view
+from views import home_view, generate_seed_input_view
 
 
 class Window(Gtk.Window):
@@ -14,8 +13,13 @@ class Window(Gtk.Window):
 
         self.add_css("styles/style.css")
 
+        # Connect window's delete event to terminate application
+        self.connect("destroy", Gtk.main_quit)
+
         # Render Home view on new window initialization
         self.add(home_view.HomeView(self))
+        self.show_all()
+
 
     @staticmethod
     def add_css(css_file_path):
@@ -27,21 +31,18 @@ class Window(Gtk.Window):
         )
         provider.load_from_path(css_file_path)
 
-    def navigate_to(self, widget, child, path):
-        self.remove(child)
+    def navigate_to(self, path, data):
+        self.remove(self.get_child())
 
         match path:
             case "generate_seed_input":
-                vbox = Gtk.Box(
-                    orientation=Gtk.Orientation.VERTICAL,
-                    spacing=0
-                )
-
-                vbox.pack_start(child=Gtk.Button(label="generate_seed_input"), expand=True, fill=True, padding=0)
-                self.add(vbox)
+                self.add(generate_seed_input_view.GenerateSeedInputView(self))
 
             case "wallets":
                 self.add(home_view.HomeView(self))
+
+            case "generate_seed_confirmation":
+                pass
 
         self.show_all()
 
@@ -49,12 +50,6 @@ class Window(Gtk.Window):
 if __name__ == "__main__":
     # Create window
     win = Window()
-
-    # Connect window's delete event to terminate application
-    win.connect("destroy", Gtk.main_quit)
-
-    # Display window
-    win.show_all()
 
     # Start GTK+ processing loop
     Gtk.main()

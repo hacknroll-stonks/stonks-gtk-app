@@ -1,11 +1,36 @@
+/* global */
 * {
-    all: unset;
+    background: unset;
+    text-decoration: unset;
+    color: unset;
+    font-size: 1em;
 }
 
-button {
-    background: red;
+#view-container {
+    padding: 0.6em;
 }
 
-button:hover {
-    background: blue;
+label {
+    padding: 1em 0;
+}
+
+/* home_view */
+#home-view__navigation-button {
+    background-color: #2b2b2b;
+    margin: 0.2em;
+    border-radius: 0.4em;
+    font-size: 2em;
+}
+
+#home-view__navigation-button:hover {
+    background-color: #ff5a00;
+}
+
+/* generate_seed_input_view */
+#input-view__entropy-entry {
+    padding: 0 1em;
+}
+
+#input-view__submit-button {
+    padding: 0;
 }
