@@ -55,6 +55,7 @@ class GenerateSeedInputView(View):
             label="Submit",
             name="submit-button"
         )
+        self.submit_button.connect("clicked", lambda widget: self.submit_handler())
 
         self.pack_start(child=entropy_label_container, expand=False, fill=False, padding=0)
         self.pack_start(child=self.entropy_entry, expand=False, fill=False, padding=0)

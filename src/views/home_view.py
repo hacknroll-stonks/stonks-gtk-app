@@ -16,11 +16,14 @@ class HomeView(View):
             label="New seed phrase",
             name="navigation-button--selected"
         )
+        # Todo: Temp testing
+        generate_seed_view_button.connect("clicked", lambda widget, path: self.click_handler(path), "generate_seed_input")
 
         wallets_view_button = Gtk.Button(
             label="Wallets",
             name="navigation-button"
         )
+        wallets_view_button.connect("clicked", lambda widget, path: self.click_handler(path), "wallets")
 
         self.pack_start(child=generate_seed_view_button, expand=True, fill=True, padding=0)
         self.pack_start(child=wallets_view_button, expand=True, fill=True, padding=0)

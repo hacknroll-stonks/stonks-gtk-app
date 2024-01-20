@@ -21,8 +21,8 @@ class Window(Gtk.Window):
         self.connect("destroy", Gtk.main_quit)
 
         # Render Home view on new window initialization
-        # self.add(home_view.HomeView(self))
-        self.add(wallets_view.WalletsView(self))
+        self.add(home_view.HomeView(self))
+        # self.add(wallets_view.WalletsView(self))
         # self.add(wallet_address_view.WalletAddressView(self, {"public_key": "1234"}))
         self.show_all()
 

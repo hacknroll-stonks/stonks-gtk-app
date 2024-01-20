@@ -50,6 +50,16 @@ label {
     color: #ff5a00;
 }
 
+/* generate_seed_confirmation_view */
+#confirmation-view__button {
+    margin: 0 1em;
+}
+
+#confirmation-view__button--selected {
+    margin: 0 1em;
+    background-color: #ff5a00;
+}
+
 /* wallet_address_view */
 #wallet-address-view__label {
     font-size: 2em;
