@@ -29,6 +29,7 @@ class WalletAddressView(View):
             label="Home",
             name="submit-button--selected"
         )
+        home_button.connect("clicked", lambda widget: self.select())
 
         self.pack_start(child=qr_image, expand=False, fill=False, padding=0)
         self.pack_start(child=public_key_label, expand=False, fill=False, padding=0)

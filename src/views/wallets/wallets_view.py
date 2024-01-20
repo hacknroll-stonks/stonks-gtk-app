@@ -26,6 +26,7 @@ class WalletsView(View):
             image=ethereum_image,
             always_show_image=True
         )
+        ethereum_button.connect("clicked", lambda widget: self.click_handler({"public_key": "ethereum"}))
 
         pixbuf = GdkPixbuf.Pixbuf.new_from_file_at_scale(
             filename="assets/images/bitcoin.png",
@@ -41,6 +42,7 @@ class WalletsView(View):
             image=bitcoin_image,
             always_show_image=True
         )
+        bitcoin_button.connect("clicked", lambda widget: self.click_handler({"public_key": "bitcoin"}))
 
         self.pack_start(child=ethereum_button, expand=True, fill=True, padding=0)
         self.pack_start(child=bitcoin_button, expand=True, fill=True, padding=0)
@@ -58,9 +60,9 @@ class WalletsView(View):
 
     def select(self):
         if self.index == 0:
-            self.click_handler({"wallet": "ethereum"})
+            self.click_handler({"public_key": "ethereum"})
         else:
-            self.click_handler({"wallet": "bitcoin"})
+            self.click_handler({"public_key": "bitcoin"})
 
     def click_handler(self, data):
         # Todo: Generate public key, qr
