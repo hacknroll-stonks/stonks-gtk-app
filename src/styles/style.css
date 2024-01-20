@@ -1,0 +1,11 @@
+* {
+    all: unset;
+}
+
+button {
+    background: red;
+}
+
+button:hover {
+    background: blue;
+}
