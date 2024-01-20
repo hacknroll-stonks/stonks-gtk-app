@@ -2,7 +2,7 @@ import gi
 gi.require_version("Gtk", "3.0")
 from gi.repository import Gtk, Gdk
 
-from views import home_view, generate_seed_input_view, generate_seed_confirmation_view
+from views import home_view, generate_seed_input_view, generate_seed_confirmation_view, seed_view
 
 
 class Window(Gtk.Window):
@@ -35,6 +35,9 @@ class Window(Gtk.Window):
         self.remove(self.get_child())
 
         match path:
+            case "home":
+                self.add(home_view.HomeView(self))
+
             case "generate_seed_input":
                 self.add(generate_seed_input_view.GenerateSeedInputView(self))
 
@@ -45,7 +48,7 @@ class Window(Gtk.Window):
                 self.add(generate_seed_confirmation_view.GenerateSeedConfirmationView(self, data))
 
             case "seed":
-                pass
+                self.add(seed_view.SeedView(self, data))
 
         self.show_all()
 
