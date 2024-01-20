@@ -2,8 +2,12 @@ import gi
 gi.require_version("Gtk", "3.0")
 from gi.repository import Gtk, Gdk
 
-from views import home_view, generate_seed_input_view, generate_seed_confirmation_view, seed_view, wallets_view, wallet_address_view
-from gpio import buttons
+from views import home_view
+from src.views.wallets import wallets_view, wallet_address_view
+from src.views.generate_seed import generate_seed_confirmation_view, seed_view, generate_seed_input_view
+
+
+# from gpio import buttons
 
 class Window(Gtk.Window):
     def __init__(self):
@@ -18,7 +22,8 @@ class Window(Gtk.Window):
 
         # Render Home view on new window initialization
         # self.add(home_view.HomeView(self))
-        self.add(wallet_address_view.WalletAddressView(self, {"public_key": "1234"}))
+        self.add(wallets_view.WalletsView(self))
+        # self.add(wallet_address_view.WalletAddressView(self, {"public_key": "1234"}))
         self.show_all()
 
 
@@ -59,7 +64,7 @@ class Window(Gtk.Window):
 if __name__ == "__main__":
     # Create window
     win = Window()
-    buttons.bind_buttons(win)
+    # buttons.bind_buttons(win)
     # Start GTK+ processing loop
     Gtk.main()
 

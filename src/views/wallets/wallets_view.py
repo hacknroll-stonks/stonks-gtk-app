@@ -1,6 +1,6 @@
 import gi
 gi.require_version("Gtk", "3.0")
-from gi.repository import Gtk
+from gi.repository import Gtk, GdkPixbuf
 
 from views.view import View
 
@@ -12,14 +12,34 @@ class WalletsView(View):
         # State for button navigation
         self.index = 0
 
+        pixbuf = GdkPixbuf.Pixbuf.new_from_file_at_scale(
+            filename="assets/images/ethereum.png",
+            width=32,
+            height=32,
+            preserve_aspect_ratio=True
+        )
+        ethereum_image = Gtk.Image.new_from_pixbuf(pixbuf)
+
         ethereum_button = Gtk.Button(
             label="Ethereum",
-            name="navigation-button--selected"
+            name="navigation-button--selected",
+            image=ethereum_image,
+            always_show_image=True
         )
+
+        pixbuf = GdkPixbuf.Pixbuf.new_from_file_at_scale(
+            filename="assets/images/bitcoin.png",
+            width=32,
+            height=32,
+            preserve_aspect_ratio=True
+        )
+        bitcoin_image = Gtk.Image.new_from_pixbuf(pixbuf)
 
         bitcoin_button = Gtk.Button(
             label="Bitcoin",
-            name="navigation-button"
+            name="navigation-button",
+            image=bitcoin_image,
+            always_show_image=True
         )
 
         self.pack_start(child=ethereum_button, expand=True, fill=True, padding=0)
