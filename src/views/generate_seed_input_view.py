@@ -36,11 +36,12 @@ class GenerateSeedInputView(View):
     def submit_handler(self, widget, path):
         print(self.entropy_entry.get_text())
         print(self.variance_check_button.get_active())
-        # Todo: Integrate with seed generation
+        # Todo: Generate variance
 
         self.window.navigate_to(
             path="generate_seed_confirmation",
             data={
-                "seed": "hello world"
+                "input": self.entropy_entry.get_text(),
+                "variance": "1 2 3"
             }
         )
