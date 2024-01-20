@@ -24,6 +24,15 @@
     background-color: #ff5a00;
 }
 
+#submit-button {
+    padding: 0;
+}
+
+#submit-button--selected {
+    padding: 0;
+    background-color: #ff5a00;
+}
+
 label {
     padding: 1em 0;
 }
@@ -41,16 +50,7 @@ label {
     color: #ff5a00;
 }
 
-#input-view__submit-button {
-    padding: 0;
+/* wallet_address_view */
+#wallet-address-view__label {
+    font-size: 2em;
 }
-
-#input-view__submit-button--selected {
-    background-color: #ff5a00;
-}
-
-/* wallets_view */
-/*#wallets-view__icon {*/
-/*    height: 32px;*/
-/*    width: auto;*/
-/*}*/

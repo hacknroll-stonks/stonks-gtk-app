@@ -43,6 +43,7 @@ class WalletsView(View):
             self.click_handler({"wallet": "bitcoin"})
 
     def click_handler(self, data):
+        # Todo: Generate public key, qr
         self.window.navigate_to(
             path="wallet_address",
             data=data

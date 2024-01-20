@@ -2,7 +2,7 @@ import gi
 gi.require_version("Gtk", "3.0")
 from gi.repository import Gtk, Gdk
 
-from views import home_view, generate_seed_input_view, generate_seed_confirmation_view, seed_view, wallets_view
+from views import home_view, generate_seed_input_view, generate_seed_confirmation_view, seed_view, wallets_view, wallet_address_view
 
 
 class Window(Gtk.Window):
@@ -18,7 +18,7 @@ class Window(Gtk.Window):
 
         # Render Home view on new window initialization
         # self.add(home_view.HomeView(self))
-        self.add(wallets_view.WalletsView(self))
+        self.add(wallet_address_view.WalletAddressView(self, {"public_key": "1234"}))
         self.show_all()
 
 
@@ -35,24 +35,23 @@ class Window(Gtk.Window):
     def navigate_to(self, path, data):
         self.remove(self.get_child())
 
-        match path:
-            case "home":
-                self.add(home_view.HomeView(self))
+        if path == "home":
+            self.add(home_view.HomeView(self))
 
-            case "generate_seed_input":
-                self.add(generate_seed_input_view.GenerateSeedInputView(self))
+        elif path == "generate_seed_input":
+            self.add(generate_seed_input_view.GenerateSeedInputView(self))
 
-            case "wallets":
-                self.add(home_view.HomeView(self))
+        elif path == "generate_seed_confirmation":
+            self.add(generate_seed_confirmation_view.GenerateSeedConfirmationView(self, data))
 
-            case "generate_seed_confirmation":
-                self.add(generate_seed_confirmation_view.GenerateSeedConfirmationView(self, data))
+        elif path == "seed":
+            self.add(seed_view.SeedView(self, data))
 
-            case "seed":
-                self.add(seed_view.SeedView(self, data))
+        elif path == "wallets":
+            self.add(wallets_view.WalletsView(self))
 
-            case "wallet":
-                self.add(wallets_view.WalletsView(self))
+        elif path == "wallet_address":
+            self.add(wallet_address_view.WalletAddressView(self, data))
 
         self.show_all()
 

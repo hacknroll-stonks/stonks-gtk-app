@@ -53,7 +53,7 @@ class GenerateSeedInputView(View):
 
         self.submit_button = Gtk.Button(
             label="Submit",
-            name="input-view__submit-button"
+            name="submit-button"
         )
 
         self.pack_start(child=entropy_label_container, expand=False, fill=False, padding=0)
@@ -78,12 +78,12 @@ class GenerateSeedInputView(View):
             if self.index == 0:
                 self.index = 1
                 self.variance_check_button.set_name("input-view__check-button")
-                self.submit_button.set_name("input-view__submit-button--selected")
+                self.submit_button.set_name("submit-button--selected")
 
             else:
                 self.index = 0
                 self.variance_check_button.set_name("input-view__check-button--selected")
-                self.submit_button.set_name("input-view__submit-button")
+                self.submit_button.set_name("submit-button")
 
     def move_left(self):
         # entropy_entry
@@ -101,12 +101,12 @@ class GenerateSeedInputView(View):
             if self.index == 0:
                 self.index = 1
                 self.variance_check_button.set_name("input-view__check-button")
-                self.submit_button.set_name("input-view__submit-button--selected")
+                self.submit_button.set_name("submit-button--selected")
 
             else:
                 self.index = 0
                 self.variance_check_button.set_name("input-view__check-button--selected")
-                self.submit_button.set_name("input-view__submit-button")
+                self.submit_button.set_name("submit-button")
 
     def select(self):
         # entropy_entry
