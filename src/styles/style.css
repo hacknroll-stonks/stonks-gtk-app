@@ -10,23 +10,22 @@
     padding: 0.6em;
 }
 
-label {
-    padding: 1em 0;
-}
-
-/* home_view */
-#home-view__navigation-button {
+#navigation-button {
     background-color: #2b2b2b;
     margin: 0.2em;
     border-radius: 0.4em;
     font-size: 2em;
 }
 
-#home-view__navigation-button--selected {
+#navigation-button--selected {
     margin: 0.2em;
     border-radius: 0.4em;
     font-size: 2em;
     background-color: #ff5a00;
+}
+
+label {
+    padding: 1em 0;
 }
 
 /* generate_seed_input_view */
@@ -49,3 +48,9 @@ label {
 #input-view__submit-button--selected {
     background-color: #ff5a00;
 }
+
+/* wallets_view */
+/*#wallets-view__icon {*/
+/*    height: 32px;*/
+/*    width: auto;*/
+/*}*/

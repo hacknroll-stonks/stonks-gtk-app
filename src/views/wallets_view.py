@@ -5,25 +5,25 @@ from gi.repository import Gtk
 from views.view import View
 
 
-class HomeView(View):
+class WalletsView(View):
     def __init__(self, window):
         super().__init__(window)
 
         # State for button navigation
         self.index = 0
 
-        generate_seed_view_button = Gtk.Button(
-            label="New seed phrase",
+        ethereum_button = Gtk.Button(
+            label="Ethereum",
             name="navigation-button--selected"
         )
 
-        wallets_view_button = Gtk.Button(
-            label="Wallets",
+        bitcoin_button = Gtk.Button(
+            label="Bitcoin",
             name="navigation-button"
         )
 
-        self.pack_start(child=generate_seed_view_button, expand=True, fill=True, padding=0)
-        self.pack_start(child=wallets_view_button, expand=True, fill=True, padding=0)
+        self.pack_start(child=ethereum_button, expand=True, fill=True, padding=0)
+        self.pack_start(child=bitcoin_button, expand=True, fill=True, padding=0)
 
     def move_right(self):
         self.get_children()[self.index].set_name("navigation-button")
@@ -38,12 +38,12 @@ class HomeView(View):
 
     def select(self):
         if self.index == 0:
-            self.click_handler("generate_seed_input")
+            self.click_handler({"wallet": "ethereum"})
         else:
-            self.click_handler("wallets")
+            self.click_handler({"wallet": "bitcoin"})
 
-    def click_handler(self, path):
+    def click_handler(self, data):
         self.window.navigate_to(
-            path=path,
-            data=None
+            path="wallet_address",
+            data=data
         )

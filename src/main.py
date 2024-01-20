@@ -2,7 +2,7 @@ import gi
 gi.require_version("Gtk", "3.0")
 from gi.repository import Gtk, Gdk
 
-from views import home_view, generate_seed_input_view, generate_seed_confirmation_view, seed_view
+from views import home_view, generate_seed_input_view, generate_seed_confirmation_view, seed_view, wallets_view
 
 
 class Window(Gtk.Window):
@@ -17,7 +17,8 @@ class Window(Gtk.Window):
         self.connect("destroy", Gtk.main_quit)
 
         # Render Home view on new window initialization
-        self.add(home_view.HomeView(self))
+        # self.add(home_view.HomeView(self))
+        self.add(wallets_view.WalletsView(self))
         self.show_all()
 
 
@@ -49,6 +50,9 @@ class Window(Gtk.Window):
 
             case "seed":
                 self.add(seed_view.SeedView(self, data))
+
+            case "wallet":
+                self.add(wallets_view.WalletsView(self))
 
         self.show_all()
 
