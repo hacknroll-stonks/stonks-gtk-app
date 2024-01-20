@@ -18,7 +18,8 @@ class SeedView(View):
         )
 
         confirmation_button = Gtk.Button(
-            label="OK"
+            label="OK",
+            name="submit-button--selected"
         )
         confirmation_button.connect("clicked", lambda widget: self.select())
 
