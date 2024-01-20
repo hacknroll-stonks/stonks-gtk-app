@@ -51,21 +51,6 @@ class GenerateSeedInputView(View):
             label="Variance?",
         )
 
-        test_left_button = Gtk.Button(
-            label="Left",
-        )
-        test_left_button.connect("clicked", self.move_left)
-
-        test_right_button = Gtk.Button(
-            label="Right",
-        )
-        test_right_button.connect("clicked", self.move_right)
-
-        test_select_button = Gtk.Button(
-            label="Select"
-        )
-        test_select_button.connect("clicked", self.select)
-
         self.submit_button = Gtk.Button(
             label="Submit",
             name="input-view__submit-button"
@@ -75,12 +60,9 @@ class GenerateSeedInputView(View):
         self.pack_start(child=self.entropy_entry, expand=False, fill=False, padding=0)
         self.pack_start(child=self.num_buttons_container, expand=False, fill=False, padding=0)
         self.pack_start(child=self.variance_check_button, expand=False, fill=False, padding=0)
-        self.pack_start(child=test_left_button, expand=False, fill=False, padding=0)
-        self.pack_start(child=test_right_button, expand=False, fill=False, padding=0)
-        self.pack_start(child=test_select_button, expand=False, fill=False, padding=0)
         self.pack_start(child=self.submit_button, expand=False, fill=False, padding=0)
 
-    def move_right(self, widget):
+    def move_right(self):
         # entropy_entry
         if self.section == 0:
             prev_selected = self.num_buttons_container.get_children()[self.index]
@@ -103,7 +85,7 @@ class GenerateSeedInputView(View):
                 self.variance_check_button.set_name("input-view__check-button--selected")
                 self.submit_button.set_name("input-view__submit-button")
 
-    def move_left(self, widget):
+    def move_left(self):
         # entropy_entry
         if self.section == 0:
             prev_selected = self.num_buttons_container.get_children()[self.index]
@@ -126,7 +108,7 @@ class GenerateSeedInputView(View):
                 self.variance_check_button.set_name("input-view__check-button--selected")
                 self.submit_button.set_name("input-view__submit-button")
 
-    def select(self, widget):
+    def select(self):
         # entropy_entry
         if self.section == 0:
             # Finish input button selected
