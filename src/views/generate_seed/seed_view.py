@@ -20,12 +20,18 @@ class SeedView(View):
         confirmation_button = Gtk.Button(
             label="OK"
         )
-        confirmation_button.connect("clicked", self.click_handler)
+        confirmation_button.connect("clicked", lambda widget: self.select())
 
         self.pack_start(child=seed_label, expand=False, fill=False, padding=0)
         self.pack_start(child=confirmation_button, expand=False, fill=False, padding=0)
 
-    def click_handler(self, widget):
+    def move_right(self):
+        pass
+
+    def move_left(self):
+        pass
+
+    def select(self):
         self.window.navigate_to(
             path="home",
             data=None
