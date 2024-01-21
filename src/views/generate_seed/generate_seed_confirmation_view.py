@@ -19,7 +19,7 @@ class GenerateSeedConfirmationView(View):
             orientation=Gtk.Orientation.HORIZONTAL,
             spacing=0
         )
-        entropy_label = Gtk.Label(label=f"Entropy: {data['input']} {data['variance']}")
+        entropy_label = Gtk.Label(label=f"Entropy: {data['variance']}")
         entropy_label_container.pack_start(child=entropy_label, expand=False, fill=False, padding=0)
 
         self.buttons_container = Gtk.Box(

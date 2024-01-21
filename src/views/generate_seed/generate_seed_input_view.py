@@ -4,7 +4,7 @@ from gi.repository import Gtk
 from views.generate_seed.variance import main
 
 from views.view import View
-# from gpio import keyboard
+from gpio import keyboard
 
 
 class GenerateSeedInputView(View):
@@ -136,10 +136,11 @@ class GenerateSeedInputView(View):
                 self.submit_handler()
 
     def submit_handler(self):
-        print(self.entropy_entry.get_text())
+        input = self.entropy_entry.get_text()
+        print(input)
         print(self.variance_check_button.get_active())
         # Todo: Generate variance
-        variance = main()
+        variance = main(input)
         self.window.navigate_to(
             path="generate_seed_confirmation",
             data={

@@ -88,26 +88,15 @@ def get_bip39_words_list():
     assert(len(lines) == 2048)
     return lines
 
-def get_mnemonic(bip39_words_list):
-    while True:
-        try:
-            entropy = input('Enter your own bits of entropy. A sequence of any numbers(0-9):\n').strip() or "0"
-        except KeyboardInterrupt:
-            return
-
-        if not all(char in '0123456789' for char in entropy):
-            print('\nERROR: entropy invalid. Insert a sequence of only integers\n')
-            continue
-
-        break
+def get_mnemonic(bip39_words_list, entropy):
 
     entropyBin = bin(int(entropy))
     missing = len(entropyBin)
     randomLen = 256-missing
     ## TODO:
     ##      Add random Variance to add random numbers into the entropy
-    ran = envRandom(randomLen)
-    # ran = ''.join([str(random.randint(0,1)) for i in range(randomLen)])
+    # ran = envRandom(randomLen)
+    ran = ''.join([str(random.randint(0,1)) for i in range(randomLen)])
 
     ##
     ##
@@ -130,9 +119,9 @@ def get_mnemonic(bip39_words_list):
     return (mnemonic, hexstr)
 
 
-def main():
+def main(input):
     bip39_words_list = get_bip39_words_list()
-    mnemonic,hexstr = get_mnemonic(bip39_words_list)
+    mnemonic,hexstr = get_mnemonic(bip39_words_list, input)
     with open("Mnemonic.txt", "w") as mn:
         mn.write(mnemonic + "\n")
 
