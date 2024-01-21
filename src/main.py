@@ -65,7 +65,7 @@ class Window(Gtk.Window):
 if __name__ == "__main__":
     # Create window
     win = Window()
-    # buttons.bind_buttons(win)
+    buttons.bind_buttons(win)
     # keyboard.bind(win)
 
     # Start GTK+ processing loop

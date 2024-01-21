@@ -12,7 +12,6 @@ class WalletsView(View):
 
     def __init__(self, window):
         super().__init__(window)
-        keyboard.bind(self)
 
         # Read the public keys
         with open("Address.txt", "r") as file:

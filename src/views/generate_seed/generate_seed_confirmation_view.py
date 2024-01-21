@@ -10,7 +10,7 @@ class GenerateSeedConfirmationView(View):
     def __init__(self, window, data):
         super().__init__(window)
         self.data = data
-        keyboard.bind(self)
+        # keyboard.bind(self)
 
         # State for button navigation
         self.index = 0

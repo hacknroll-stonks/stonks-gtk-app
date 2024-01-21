@@ -10,7 +10,6 @@ from gpio import keyboard
 class GenerateSeedInputView(View):
     def __init__(self, window):
         super().__init__(window)
-        keyboard.bind(self)
 
 
         # State for button navigation

@@ -9,7 +9,6 @@ from gpio import keyboard
 class WalletAddressView(View):
     def __init__(self, window, data):
         super().__init__(window)
-        keyboard.bind(self)
 
         self.data = data
 
