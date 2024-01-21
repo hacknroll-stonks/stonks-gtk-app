@@ -1,7 +1,7 @@
 import gi
 gi.require_version("Gtk", "3.0")
 from gi.repository import Gtk
-from variance import main
+from views.generate_seed.variance import main
 
 from views.view import View
 

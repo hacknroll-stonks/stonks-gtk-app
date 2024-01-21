@@ -2,7 +2,6 @@ import random
 import binascii, hashlib, hmac, struct
 from ecdsa.curves import SECP256k1
 from eth_utils import to_checksum_address, keccak as eth_utils_keccak
-from Sensors import envRandom
 import segno
 
 BIP39_PBKDF2_ROUNDS = 2048
