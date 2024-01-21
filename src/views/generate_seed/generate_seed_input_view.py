@@ -4,7 +4,7 @@ from gi.repository import Gtk
 from views.generate_seed.variance import main
 
 from views.view import View
-from gpio import keyboard
+# from gpio import keyboard
 
 
 class GenerateSeedInputView(View):
@@ -33,21 +33,21 @@ class GenerateSeedInputView(View):
             label=0,
             name="input-view__num-button--selected"
         )
-        self.num_buttons_container.pack_start(child=num_button, expand=False, fill=False, padding=0)
+        self.num_buttons_container.pack_start(child=num_button, expand=True, fill=True, padding=0)
 
         for i in range(1, 10):
             num_button = Gtk.Button(
                 label=i,
                 name="input-view__num-button"
             )
-            self.num_buttons_container.pack_start(child=num_button, expand=False, fill=False, padding=0)
+            self.num_buttons_container.pack_start(child=num_button, expand=True, fill=True, padding=0)
 
         # Add a finish input button
         finish_input_button = Gtk.Button(
             label="OK",
             name="input-view__num-button"
         )
-        self.num_buttons_container.pack_start(child=finish_input_button, expand=False, fill=False, padding=0)
+        self.num_buttons_container.pack_start(child=finish_input_button, expand=True, fill=True, padding=0)
 
         # Section 1: check_button / submit_button
         self.variance_check_button = Gtk.CheckButton(

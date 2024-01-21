@@ -3,7 +3,7 @@
     background: unset;
     text-decoration: unset;
     color: unset;
-    font-size: 1em;
+    font-size: 1.2em;
 }
 
 #view-container {
@@ -39,7 +39,8 @@ label {
 
 /* generate_seed_input_view */
 #input-view__entropy-entry {
-    padding: 0 1em;
+    padding: 1em;
+    margin-bottom: 1em;
 }
 
 #input-view__num-button--selected {

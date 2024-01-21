@@ -83,7 +83,7 @@ def mnemonic_to_private_key(mnemonic, str_derivation_path, passphrase=""):
 def get_bip39_words_list():
     lines = None
     # downloaded from https://raw.githubusercontent.com/bitcoin/bips/master/bip-0039/english.txt
-    with open('./english.txt') as file:
+    with open('./views/generate_seed/english.txt') as file:
         lines = [line.rstrip() for line in file]
     assert(len(lines) == 2048)
     return lines

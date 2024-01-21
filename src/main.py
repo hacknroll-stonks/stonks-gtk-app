@@ -7,13 +7,12 @@ from views.wallets import wallets_view, wallet_address_view
 from views.generate_seed import generate_seed_confirmation_view, seed_view, generate_seed_input_view
 
 
-from gpio import buttons, keyboard
+# from gpio import buttons, keyboard
 
 class Window(Gtk.Window):
     def __init__(self):
         super().__init__(title="Stonks")
-        # self.set_default_size(2360, 1460)
-        self.set_default_size(400, 300)
+        self.set_default_size(1920, 1080)
 
         self.add_css("styles/style.css")
 
@@ -22,8 +21,6 @@ class Window(Gtk.Window):
 
         # Render Home view on new window initialization
         self.add(home_view.HomeView(self))
-        # self.add(wallets_view.WalletsView(self))
-        # self.add(wallet_address_view.WalletAddressView(self, {"public_key": "1234"}))
         self.show_all()
 
 
@@ -65,7 +62,7 @@ class Window(Gtk.Window):
 if __name__ == "__main__":
     # Create window
     win = Window()
-    buttons.bind_buttons(win)
+    # buttons.bind_buttons(win)
     # keyboard.bind(win)
 
     # Start GTK+ processing loop
