@@ -3,6 +3,7 @@ gi.require_version("Gtk", "3.0")
 from gi.repository import Gtk
 
 from views.view import View
+from web3Transactions.camera import cam
 # from gpio import buttons, keyboard
 
 
@@ -30,7 +31,7 @@ class HomeView(View):
             label="Payments",
             name="navigation-button"
         )
-        payment_view_button.connect("clicked", lambda widget, path: self.click_handler(path), "payment")
+        payment_view_button.connect("clicked", lambda widget, path: self.payment_handler(path), "payment")
 
         self.pack_start(child=generate_seed_view_button, expand=True, fill=True, padding=0)
         self.pack_start(child=wallets_view_button, expand=True, fill=True, padding=0)
@@ -58,3 +59,7 @@ class HomeView(View):
             path=path,
             data=None
         )
+
+    def payment_handler(self, path):
+        cam(123)
+
