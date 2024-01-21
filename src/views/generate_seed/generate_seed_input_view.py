@@ -1,6 +1,7 @@
 import gi
 gi.require_version("Gtk", "3.0")
 from gi.repository import Gtk
+from variance import main
 
 from views.view import View
 
@@ -136,11 +137,11 @@ class GenerateSeedInputView(View):
         print(self.entropy_entry.get_text())
         print(self.variance_check_button.get_active())
         # Todo: Generate variance
-
+        variance = main()
         self.window.navigate_to(
             path="generate_seed_confirmation",
             data={
                 "input": self.entropy_entry.get_text(),
-                "variance": "1 2 3"
+                "variance": variance
             }
         )

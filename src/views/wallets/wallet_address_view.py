@@ -13,7 +13,7 @@ class WalletAddressView(View):
 
         # Todo: Insert QR code
         pixbuf = GdkPixbuf.Pixbuf.new_from_file_at_scale(
-            filename="assets/images/ethereum.png",
+            filename="assets/images/ethereum_QR_Code.png",
             width=256,
             height=256,
             preserve_aspect_ratio=True

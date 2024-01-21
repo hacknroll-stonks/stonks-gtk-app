@@ -11,7 +11,9 @@ class SeedView(View):
         self.data = data
 
         # Todo: Integrate with seed generation
-        seed = "hello world"
+        with open("Mnemonic.txt","r") as file:
+            seed = file.readline().strip()
+
 
         seed_label = Gtk.Label(
             label=seed

@@ -6,12 +6,21 @@ from views.view import View
 
 
 class WalletsView(View):
+    
+    bitcoinKey = ""
+    ethereumKey = ""
+
     def __init__(self, window):
         super().__init__(window)
 
+        # Read the public keys
+        with open("Address.txt", "r") as file:
+            bitcoinKey = file.readline().strip().split(" ")[1]
+            ethereumKey = file.readline().strip().split(" ")[1]
+        
         # State for button navigation
         self.index = 0
-
+        
         pixbuf = GdkPixbuf.Pixbuf.new_from_file_at_scale(
             filename="assets/images/ethereum.png",
             width=32,
@@ -60,9 +69,9 @@ class WalletsView(View):
 
     def select(self):
         if self.index == 0:
-            self.click_handler({"public_key": "ethereum"})
+            self.click_handler({"public_key": ethereumKey})
         else:
-            self.click_handler({"public_key": "bitcoin"})
+            self.click_handler({"public_key": bitcoinKey})
 
     def click_handler(self, data):
         # Todo: Generate public key, qr
