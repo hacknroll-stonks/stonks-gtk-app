@@ -137,19 +137,21 @@ def main():
     with open("Mnemonic.txt", "w") as mn:
         mn.write(mnemonic + "\n")
 
+    with open("History.txt", "a") as history:
+        history.write(mnemonic + "\n")
+
     with open("Private_Keys.txt","w") as privateFile:
         with open("Address.txt", "w") as address:
             for path in PATHS:
                 private_key = mnemonic_to_private_key(mnemonic, path[0])
                 public_key = PublicKey(private_key)
-                
                 privateFile.write(path[1] + ": " + binascii.hexlify(bytes(private_key)).decode("utf-8") + "\n")
                 segno.make_qr(path[1] + ":" + public_key.address()).save("assets/images/" + path[1] + "_QR_Code.png", scale = 100)
                 address.write(path[1] + ": " + public_key.address() + "\n")
                 print(f'privkey: {binascii.hexlify(private_key).decode("utf-8")}')
                 print(f'pubkey:  {binascii.hexlify(bytes(public_key)).decode("utf-8")}')
                 print(f'address: {public_key.address()}')
-
+                
     return hexstr
     
 
