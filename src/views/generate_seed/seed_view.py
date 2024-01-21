@@ -4,7 +4,6 @@ from gi.repository import Gtk
 
 from views.view import View
 
-
 class SeedView(View):
     def __init__(self, window, data):
         super().__init__(window)

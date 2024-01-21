@@ -38,7 +38,8 @@ class Window(Gtk.Window):
         provider.load_from_path(css_file_path)
 
     def navigate_to(self, path, data):
-        self.remove(self.get_child())
+        # self.remove(self.get_child())
+        self.get_child().destroy()
 
         if path == "home":
             self.add(home_view.HomeView(self))
@@ -64,7 +65,8 @@ class Window(Gtk.Window):
 if __name__ == "__main__":
     # Create window
     win = Window()
-    buttons.bind_buttons(win)
+    # buttons.bind_buttons(win)
+    
     # Start GTK+ processing loop
     Gtk.main()
 

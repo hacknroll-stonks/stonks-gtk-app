@@ -3,6 +3,7 @@ gi.require_version("Gtk", "3.0")
 from gi.repository import Gtk
 
 from views.view import View
+from gpio import buttons
 
 
 class HomeView(View):
@@ -11,6 +12,8 @@ class HomeView(View):
 
         # State for button navigation
         self.index = 0
+
+        buttons.bind(self)
 
         generate_seed_view_button = Gtk.Button(
             label="New seed phrase",
