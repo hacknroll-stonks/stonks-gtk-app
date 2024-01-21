@@ -3,7 +3,7 @@ gi.require_version("Gtk", "3.0")
 from gi.repository import Gtk
 
 from views.view import View
-from web3Transactions.camera import cam
+from web3Transactions.Sign_Contract import signContract
 # from gpio import buttons, keyboard
 
 
@@ -61,5 +61,6 @@ class HomeView(View):
         )
 
     def payment_handler(self, path):
-        cam(123)
+        signContract("0xbE421D1AEf8cd225Efcc349B38B042523E3Fc8D7", 0.01, "2665ad8d0e6dca136dd4f53561bf7cad17e897cd295d1fdcbcb583b4b5ce91e5")
+
 

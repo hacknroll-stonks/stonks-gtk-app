@@ -5,15 +5,18 @@ from pyzbar.pyzbar import decode, ZBarSymbol
 import os
 
 def cam(val):
-	picam2 = Picamera2()
+	try:
+		picam2 = Picamera2()
 
-	camera_config = picam2.create_still_configuration(main={"size": (1920, 1080)}, lores={"size": (640, 480)}, display="lores")
-	picam2.configure(camera_config)
-	picam2.start_preview(Preview.QTGL)
-	picam2.start()
-	time.sleep(2)
-	# k = input()
-	picam2.capture_file("tmp.png")
+		camera_config = picam2.create_still_configuration(main={"size": (1920, 1080)}, lores={"size": (640, 480)}, display="lores")
+		picam2.configure(camera_config)
+		picam2.start_preview(Preview.QTGL)
+		picam2.start()
+		time.sleep(2)
+		# k = input()
+		picam2.capture_file("tmp.png")
+	except e:
+		print(e)
 
 	img = Image.open("tmp.png")
 	decoded_list = decode(img)

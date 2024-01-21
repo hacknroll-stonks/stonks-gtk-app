@@ -9,6 +9,14 @@ class PaymentView(View):
     def __init__(self, window, data):
         super().__init__(window)
 
+        pixbuf = GdkPixbuf.Pixbuf.new_from_file_at_scale(
+            filename="assets/images/ethereum_QR_Code.png",
+            width=256,
+            height=256,
+            preserve_aspect_ratio=True
+        )
+        qr_image = Gtk.Image.new_from_pixbuf(pixbuf)
+
         transaction_id_label = Gtk.Label(
             label=f"Transaction ID: {data['transaction_id']}"
         )
@@ -29,6 +37,7 @@ class PaymentView(View):
             label=f"Fee: {data['fee']}"
         )
 
+        self.pack_start(child=qr_image, expand=False, fill=False, padding=0)
         self.pack_start(child=transaction_id_label, expand=False, fill=False, padding=0)
         self.pack_start(child=address_from_label, expand=False, fill=False, padding=0)
         self.pack_start(child=address_to_label, expand=False, fill=False, padding=0)

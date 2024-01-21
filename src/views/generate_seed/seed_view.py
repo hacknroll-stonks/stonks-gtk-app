@@ -15,7 +15,8 @@ class SeedView(View):
 
 
         seed_label = Gtk.Label(
-            label=seed
+            label=seed,
+            wrap=True
         )
 
         confirmation_button = Gtk.Button(
