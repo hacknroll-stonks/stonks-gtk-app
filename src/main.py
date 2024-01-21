@@ -5,9 +5,10 @@ from gi.repository import Gtk, Gdk
 from views import home_view
 from views.wallets import wallets_view, wallet_address_view
 from views.generate_seed import generate_seed_confirmation_view, seed_view, generate_seed_input_view
+from views.payments import payment
 
 
-from gpio import buttons, keyboard
+# from gpio import buttons, keyboard
 
 class Window(Gtk.Window):
     def __init__(self):
@@ -55,6 +56,16 @@ class Window(Gtk.Window):
 
         elif path == "wallet_address":
             self.add(wallet_address_view.WalletAddressView(self, data))
+
+        elif path == "payment":
+            fake_data = {
+                "transaction_id": "123",
+                "address_from": "123",
+                "address_to": "123",
+                "value": "123",
+                "fee": "123"
+            }
+            self.add(payment.PaymentView(self, fake_data))
 
         self.show_all()
 

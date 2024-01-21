@@ -3,7 +3,7 @@ gi.require_version("Gtk", "3.0")
 from gi.repository import Gtk
 
 from views.view import View
-from gpio import buttons, keyboard
+# from gpio import buttons, keyboard
 
 
 class HomeView(View):
@@ -26,8 +26,15 @@ class HomeView(View):
         )
         wallets_view_button.connect("clicked", lambda widget, path: self.click_handler(path), "wallets")
 
+        payment_view_button = Gtk.Button(
+            label="Payments",
+            name="navigation-button"
+        )
+        payment_view_button.connect("clicked", lambda widget, path: self.click_handler(path), "payment")
+
         self.pack_start(child=generate_seed_view_button, expand=True, fill=True, padding=0)
         self.pack_start(child=wallets_view_button, expand=True, fill=True, padding=0)
+        self.pack_start(child=payment_view_button, expand=True, fill=True, padding=0)
 
     def move_right(self):
         self.get_children()[self.index].set_name("navigation-button")

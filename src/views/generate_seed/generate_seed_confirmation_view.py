@@ -3,7 +3,7 @@ gi.require_version("Gtk", "3.0")
 from gi.repository import Gtk
 
 from views.view import View
-from gpio import keyboard
+# from gpio import keyboard
 
 
 class GenerateSeedConfirmationView(View):
