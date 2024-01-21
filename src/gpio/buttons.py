@@ -16,8 +16,8 @@ right_button = Button(RIGHT_PIN)
 left_button = Button(LEFT_PIN)
 center_button = Button(CENTER_PIN)
 
-start_time = time.time()
 blocking = {RIGHT_PIN : False, LEFT_PIN : False, CENTER_PIN: False}
+# start_time = time.time()
 # last = {RIGHT_PIN : start_time, LEFT_PIN : start_time}
 
 def ignore_noise(pin):

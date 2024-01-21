@@ -3,8 +3,8 @@ gi.require_version("Gtk", "3.0")
 from gi.repository import Gtk, Gdk
 
 from views import home_view
-from src.views.wallets import wallets_view, wallet_address_view
-from src.views.generate_seed import generate_seed_confirmation_view, seed_view, generate_seed_input_view
+from views.wallets import wallets_view, wallet_address_view
+from views.generate_seed import generate_seed_confirmation_view, seed_view, generate_seed_input_view
 
 
 from gpio import buttons
