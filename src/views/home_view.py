@@ -13,8 +13,6 @@ class HomeView(View):
         # State for button navigation
         self.index = 0
 
-        buttons.bind(self)
-
         generate_seed_view_button = Gtk.Button(
             label="New seed phrase",
             name="navigation-button--selected"

@@ -7,7 +7,7 @@ from views.wallets import wallets_view, wallet_address_view
 from views.generate_seed import generate_seed_confirmation_view, seed_view, generate_seed_input_view
 
 
-from gpio import buttons
+from gpio import buttons, keyboard
 
 class Window(Gtk.Window):
     def __init__(self):
@@ -66,6 +66,7 @@ if __name__ == "__main__":
     # Create window
     win = Window()
     # buttons.bind_buttons(win)
+    keyboard.bind(win)
 
     # Start GTK+ processing loop
     Gtk.main()

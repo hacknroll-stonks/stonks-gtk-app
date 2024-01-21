@@ -7,7 +7,7 @@ import threading
 RIGHT_PIN = 3
 LEFT_PIN = 27
 CENTER_PIN = 10
-BOTH = -1
+# BOTH = -1
 
 THRESH_DOUBLE = 0.5  # time between presses from two distinct buttons to be registered as simultaneous, in seconds
 THRESH_NOISE = 0.1  # minimum time between two presses from the same button, in seconds
