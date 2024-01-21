@@ -4,6 +4,7 @@ from gi.repository import Gtk
 from views.generate_seed.variance import main
 
 from views.view import View
+from gpio import keyboard
 
 
 class GenerateSeedInputView(View):
