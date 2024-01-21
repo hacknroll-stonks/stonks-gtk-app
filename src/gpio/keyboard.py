@@ -1,6 +1,6 @@
 from pynput import keyboard
 
-def bind(window):
+def bind(view):
   def on_press(key):
     if key == keyboard.Key.esc:
       return False  # stop listener
@@ -9,11 +9,11 @@ def bind(window):
     except:
       k = key.name  # other keys
     if k == 'left':
-      window.get_child().move_left()
+      view.move_left()
     elif k == 'right':
-      window.get_child().move_right()
+      view.move_right()
     elif k == 'down':
-      window.get_child().select()
+      view.select()
     # if k in ['1', '2', 'left', 'right']:  # keys of interest
     #   # self.keys.append(k)  # store it in global-like variable
     #   print('Key pressed: ' + k)

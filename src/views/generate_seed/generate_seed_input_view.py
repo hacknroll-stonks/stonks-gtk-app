@@ -9,6 +9,8 @@ from views.view import View
 class GenerateSeedInputView(View):
     def __init__(self, window):
         super().__init__(window)
+        keyboard.bind(self)
+
 
         # State for button navigation
         self.section = 0  # 0: entropy_entry, 1: check_button + self.submit_button

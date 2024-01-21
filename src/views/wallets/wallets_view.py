@@ -3,7 +3,7 @@ gi.require_version("Gtk", "3.0")
 from gi.repository import Gtk, GdkPixbuf
 
 from views.view import View
-
+from gpio import buttons, keyboard
 
 class WalletsView(View):
     
@@ -12,6 +12,7 @@ class WalletsView(View):
 
     def __init__(self, window):
         super().__init__(window)
+        keyboard.bind(self)
 
         # Read the public keys
         with open("Address.txt", "r") as file:
